@@ -97,9 +97,9 @@
 }
 
 .spinner {
-  border: 3px solid rgba(255, 0, 0, 0.3);
+  border: 3px solid '87150b';
   border-radius: 50%;
-  border-top: 3px solid #87150b;
+  border-top: 3px solid #1dbf73;
   width: 3em;
   height: 3em;
   animation: spin 1s linear infinite;
