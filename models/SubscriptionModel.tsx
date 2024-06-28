@@ -4,16 +4,6 @@ import '../styles/stylesSubscriptionModel.css';
 import { getUserInfo } from '../utils/auth';
 import { getAuthToken } from '../background';
 
-interface User {
-  _id: string;
-  name: string;
-  emailAddress: string;
-  photoUrl: string;
-  tokenStatus: boolean;
-  apiCalls: number;
-  subscriptionPlan: string;
-}
-
 interface Plan {
   _id: string;
   planTitle: string;
@@ -157,7 +147,7 @@ const SubscriptionModel: React.FC = () => {
                   </span>
                 )}
               </h1>
-              {plan.planTitle === 'year' ? (
+              {plan.planTitle === 'yearly' ? (
                 <div style={{ height: '25px' }}>
                   <p style={{ color: 'black', fontSize: '12px' }}>
                     Billed as $129 / year
@@ -165,7 +155,9 @@ const SubscriptionModel: React.FC = () => {
                     (Save $170)
                   </p>
                 </div>
-              ) : null}
+              ) : (
+                <div style={{ height: '25px' }}></div>
+              )}
 
               <p>
                 {plan.planTitle === 'free'
@@ -180,7 +172,7 @@ const SubscriptionModel: React.FC = () => {
                     className="get-unlimited-button"
                     style={{
                       backgroundColor:
-                        currentPlan === plan.planTitle ? 'gray' : '#87150b',
+                        currentPlan === plan.planTitle ? 'gray' : '#1dbf73',
                       cursor:
                         currentPlan === plan.planTitle
                           ? 'not-allowed'
