@@ -18,13 +18,13 @@ const MainModel: React.FC = () => {
   useEffect(() => {
     const messageListener = (message: any) => {
       if (message.action === 'receiveEmailText') {
-        const emailText = `Act as a content creator consultant to assist me that I am ${selectedRole} and I have to deal with the ${
+        const emailText = `Act as a content creator consultant. I am a ${selectedRole} dealing with ${
           selectedRole === 'seller' ? 'buyer' : 'seller'
-        } in crafting reply messages. Here is the messages...\n ${
+        } efficiently and attractively in a formal tone.\nHere is the message:\n${
           message?.response
-        }\n So as you see each message should conclude by specifying whether it is from the seller or the buyer and your  task is to help the ${selectedRole} respond to the ${
+        }\nYour task:\nHelp the ${selectedRole} respond to the last message from the ${
           selectedRole === 'seller' ? 'buyer' : 'seller'
-        }'s messages efficiently and attractively, maintaining an formal tone for the situation\n make sure the answer should be short an perfect for situation not more than 25 words\nRemember that don't add the extra lines like here is your text or any warm regard or any thing that used to be in bracket like [seller] or any other this just give to the point text so I can just copy and paste it right\nalso while generating the response you have to generate only one response I need only one response and don't specify at the end that wether it is from [seller] or [buyer]\njust just give a reply in formal tone so i just copy and paste it right`;
+        }.\nThe response should be short (no more than 25 words) and perfectly suited to the situation.Do not include extra lines like "here is your text" or any greetings or brackets (e.g., [seller]).Provide only one response in a formal tone.Please generate the response now.`;
         const modifiedEmailText = emailText?.replace('formal', selectedTone);
         if (modifiedEmailText && modifiedEmailText.includes(selectedTone)) {
           generateResponse(modifiedEmailText);
@@ -211,16 +211,16 @@ const MainModel: React.FC = () => {
               className="select"
               onChange={handleToneChange}
             >
-              <option value="formal">Formal</option>
-              <option value="persuasive">Persuasive</option>
-              <option value="friendly">Friendly</option>
-              <option value="enthusiastic">Enthusiastic</option>
-              <option value="empathetic">Empathetic</option>
-              <option value="assertive">Assertive</option>
-              <option value="apologetic">Apologetic</option>
-              <option value="informative">Informative</option>
-              <option value="reassuring">Reassuring</option>
-              <option value="grateful">Grateful</option>
+              <option value="formal">Formal 🧑‍💼</option>
+              <option value="apologetic">Apologetic 🙏</option>
+              <option value="friendly">Friendly 😊</option>
+              <option value="enthusiastic">Enthusiastic 🎉</option>
+              <option value="persuasive">Persuasive 🗣️</option>
+              <option value="empathetic">Empathetic 🤗</option>
+              <option value="assertive">Assertive 💪</option>
+              <option value="informative">Informative 📘</option>
+              <option value="reassuring">Reassuring 🌟</option>
+              <option value="grateful">Grateful 🙌</option>
             </select>
           </div>
           <div className="selectContainer">
